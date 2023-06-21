@@ -1,77 +1,81 @@
-#Grupo de pessoas
+# Grupo de pessoas
 
-Nome_Mulher_Mais_Velha1 = []
-Nome_Mulher_Mais_Velha2 = []
-Nome_Mulher_Mais_Velha3 = []
-Nome_Mulher_Mais_Velha4 = []
+Nome_Mulher_Menos_Vinte = []
 
-print ('PRIMEIRA PESSOA')
+print('PRIMEIRA PESSOA')
 for a in range(1):
     nome = str(input('Nome: '))
     idade = int(input('Idade: '))
     sexo = str(input('Sexo (M)(F): '))
-print ('-='*20)
+print('-='*20)
 
-print ('SEGUNDA PESSOA')
+print('SEGUNDA PESSOA')
 for b in range(1):
     nome2 = str(input('Nome: '))
     idade2 = int(input('Idade: '))
     sexo2 = str(input('Sexo (M)(F): '))
-print ('-='*20)
+print('-='*20)
 
-print ('TERCEIRA PESSOA')
+print('TERCEIRA PESSOA')
 for c in range(1):
     nome3 = str(input('Nome: '))
     idade3 = int(input('Idade: '))
     sexo3 = str(input('Sexo (M)(F): '))
-print ('-='*20)
+print('-='*20)
 
-print ('QUARTA PESSOA')
+print('QUARTA PESSOA')
 for d in range(1):
     nome4 = str(input('Nome: '))
     idade4 = int(input('Idade: '))
     sexo4 = str(input('Sexo (M)(F): '))
-print ('-='*20)
+print('-='*20)
 
-#Média das idades
+# Média das idades
 
 media = (idade + idade2 + idade3 + idade4) / 4
-print (f'A média de idade é {media}')
+print(f'A média de idade é {media}')
 
-#Nome do homem MAIS velho
+# Nome do homem MAIS velho
 
-if sexo == "M" and idade > (idade2, idade3, idade4):
-    print (f'Homem mais velho: {nome}')
+homem_mais_velho = ''
+idade_homem_mais_velho = 0
 
-elif sexo2 == "M" and idade2 > (idade, idade3, idade4):
-    print (f'Homem mais velho: {nome2}')
+if sexo == "M" and idade > idade_homem_mais_velho:
+    homem_mais_velho = nome
+    idade_homem_mais_velho = idade
 
-elif sexo3 == "M" and idade3 > (idade, idade2, idade4):
-    print (f'Homem mais velho: {nome3}')
+if sexo2 == "M" and idade2 > idade_homem_mais_velho:
+    homem_mais_velho = nome2
+    idade_homem_mais_velho = idade2
 
-elif sexo4 == "M" and idade4 > (idade, idade2, idade3):
-    print (f'Homem mais velho: {nome4}')
+if sexo3 == "M" and idade3 > idade_homem_mais_velho:
+    homem_mais_velho = nome3
+    idade_homem_mais_velho = idade3
 
+if sexo4 == "M" and idade4 > idade_homem_mais_velho:
+    homem_mais_velho = nome4
+    idade_homem_mais_velho = idade4
+
+if homem_mais_velho:
+    print(f'Homem mais velho: {homem_mais_velho}')
 else:
-    print ('Resposta inválida!')
+    print('Não há homens no grupo.')
 
-#Mulheres com MENOS de 20 anos
+# Mulheres com MENOS de 20 anos
 
 if sexo == "F" and idade < 20:
-    Nome_Mulher_Mais_Velha1.append(nome)
+    Nome_Mulher_Menos_Vinte.append(nome)
 
-elif sexo2 == "F" and idade < 20:
-    Nome_Mulher_Mais_Velha2.append(nome2)
+if sexo2 == "F" and idade2 < 20:
+    Nome_Mulher_Menos_Vinte.append(nome2)
 
-elif sexo3 == "F" and idade < 20:
-    Nome_Mulher_Mais_Velha3.append(nome3)
+if sexo3 == "F" and idade3 < 20:
+    Nome_Mulher_Menos_Vinte.append(nome3)
 
-elif sexo4 == "F" and idade < 20:
-    Nome_Mulher_Mais_Velha4.append(nome4)
+if sexo4 == "F" and idade4 < 20:
+    Nome_Mulher_Menos_Vinte.append(nome4)
+
+if len(Nome_Mulher_Menos_Vinte) > 0:
+    print(f"Mulheres com menos de 20 anos: {(Nome_Mulher_Menos_Vinte)}")
 else:
-    print('Resposta invalida!')
-
-print (f"""Mulheres com menos de 20 anos: {print(Nome_Mulher_Mais_Velha1)}
-{print(Nome_Mulher_Mais_Velha2)}
-{print(Nome_Mulher_Mais_Velha3)}
-{print(Nome_Mulher_Mais_Velha4)}""")
+    print('Não há mulheres com menos de 20 anos.')
